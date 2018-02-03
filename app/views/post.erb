@@ -1,0 +1,22 @@
+<h2><%= @post.title %></h2><br>
+<h4><%= @post.body %></h4><br>
+<%= @post.users.name %><br>
+<br>
+<div class="vote-container">
+<a class="upvote" href="/post/upvote/<%=@post.id%>"> < </a>
+<span class="votes"><%= @post.post_votes.first.votes %></span>
+<a class="downvote" href="/post/downvote/<%=@post.id%>"> > </a>
+</div>
+<br>
+<% @post.comments.each do |k| %>
+<%= k.body %><br>
+
+
+<div class="comment-votes-container">
+<a class="comment-upvote" href="/comment/upvote/<%=k.id%>/<%=@post.id%>"> < </a>
+<span class="comment-score"><%= k.comment_votes.first.votes %></span>
+<a class="comment-downvote" href="/comment/downvote/<%=k.id%>/<%=@post.id%>"> > </a>
+</div>
+
+
+<% end %>

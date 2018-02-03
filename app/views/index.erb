@@ -1,0 +1,10 @@
+<% @posts.each do |k| %>
+<h2><a href="/post/<%=k.id%>"><%= k.title %></a></h2>
+<br>
+ADD NAME HERE<br>
+<div class="vote-container">
+<a class="upvote" href="/post/upvote/<%=k.id%>"> < </a>
+<span class="votes"><%= k.post_votes.first.votes %></span>
+<a class="downvote" href="/post/downvote/<%=k.id%>"> > </a>
+</div>
+<% end %>
